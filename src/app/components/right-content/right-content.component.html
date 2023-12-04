@@ -1,0 +1,26 @@
+<div class="content-container">
+    <div class="timer-container">
+        <span class="timer">{{timer}}</span>
+        <img src="./assets/images/timer.png" alt="timer">
+    </div>
+    <div class="amusement-container">
+        <img src="./assets/images/amusement-only.png" alt="For Amusement Only">
+    </div>
+    <div class="last-win-container">
+        <div class="row">
+            <div class="last-win-number" *ngFor="let win of lastWinners">
+                {{win?.number}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="last-win-number" *ngFor="let win of lastWinners">
+                1X
+            </div>
+        </div>
+    </div>
+    <div class="action-btn">
+        <img class="btn" src="./assets/images/bet-ok.png" alt="bet ok">
+        <img class="btn" src="./assets/images/clear-key.png" alt="clear">
+        <img class="btn" src="./assets/images/double-key.png" alt="double">
+    </div>
+</div>

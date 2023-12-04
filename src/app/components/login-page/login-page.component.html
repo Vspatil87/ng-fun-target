@@ -1,0 +1,14 @@
+<div class="container">
+    <div>
+        <div class="error-msg" id="error-msg">{{errorMsg}}</div>
+        <div class="input-fields">
+            <input [(ngModel)]="username" type="text" class="username" id="username" placeholder="Username">
+        </div>
+        <div class="input-fields">
+            <input [(ngModel)]="password" type="text" class="password" id="password" placeholder="Password">
+        </div>
+        <div class="login-button-container">
+            <button (click)="login()" class="login-button">Login</button>
+        </div>
+    </div>
+</div>

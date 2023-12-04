@@ -1,0 +1,57 @@
+@keyframes blinking {
+    50% {
+        border-color: #ffcd5f;
+    }
+}
+
+.header-container {
+    display: flex;
+    min-height: 50px;
+    max-height: 50px;
+    height: 100%;
+    align-items: center;
+    width: calc(100% - 10px);
+    min-width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+
+    .game-id-container {
+        width: 25%;
+
+        .game-id {
+            width: 150px;
+            min-height: 22px;
+        }
+    }
+
+    .game-title-container {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+
+        .game-title {
+            width: 400px;
+            min-height: 30px;
+            border-radius: 5px;
+
+            &.blinking-border {
+                border: 2px dotted red;
+                animation-name: blinking;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+            }
+        }
+    }
+
+    .cancel-btn-container {
+        display: flex;
+        justify-content: end;
+        width: 35%;
+
+        .cancel-btn {
+            width: 35px;
+            min-height: 30px;
+            cursor: pointer;
+        }
+    }
+
+}

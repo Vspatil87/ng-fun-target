@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 25px;
+    width: calc(100% - 10px);
+    min-width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+    padding: 10px;
+
+    .header {
+        height: 10%;
+    }
+
+    .wheel-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 70%;
+
+        .bet-buttons {
+            width: 25%;
+        }
+
+        .wheel {
+            width: 40%;
+            height: 100%;
+        }
+
+        .right-content {
+            width: 35%;
+        }
+    }
+
+    .bet-numbers {
+        height: 20%;
+    }
+}

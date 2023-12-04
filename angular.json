@@ -27,12 +27,18 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/package.json",
+              "src/electron.prod.js",
+              "src/node_modules",
+              "src/assets/images"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/JS/Winwheel.js"
+            ]
           },
           "configurations": {
             "production": {

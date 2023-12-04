@@ -1,0 +1,80 @@
+@keyframes blinking {
+    50% {
+        border-color: #ffcd5f;
+    }
+}
+
+.wheel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .pointer {
+        position: absolute;
+        height: 450px;
+        width: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        img {
+            position: absolute;
+            top: -20px;
+            width: 30px;
+            height: 42px;
+        }
+    }
+
+    .winner-image {
+        position: absolute;
+        height: 450px;
+        width: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .winner-wheel {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+
+        .gold-peti {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+        }
+    }
+
+    /* Sets the background image for the wheel */
+    td.the_wheel {
+        padding: 2px;
+        border-radius: 250px;
+        background-color: #2A1212;
+
+        &.blinking-border {
+            border: 6px dotted yellow;
+            animation-name: blinking;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+
+        .round-img {
+            position: absolute;
+            height: 450px;
+            width: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+        }
+    }
+
+    canvas {
+        background-image: url(../../../assets/images/round.png);
+        background-position: center;
+        background-size: cover;
+        height: 100%;
+    }
+}
