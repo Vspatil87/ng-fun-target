@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 /packages
+/app-exe
 
 # Node
 /node_modules

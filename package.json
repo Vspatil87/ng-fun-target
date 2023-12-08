@@ -16,11 +16,11 @@
   "build": {
     "asar": true,
     "compression": "maximum",
-    "appId": "com.smasher.lucky16cards",
+    "appId": "fun",
     "productName": "Fun Target",
     "directories": {
       "output": "app-exe",
-      "buildResources": "dist"
+      "buildResources": "dist/ng-fun-target"
     },
     "win": {
       "icon": "./src/assets/images/a2.ico",
@@ -35,23 +35,16 @@
         }
       ]
     },
-    "extraFiles": [
-      "resolu.exe"
-    ],
     "nsis": {
       "createDesktopShortcut": "always",
-      "runAfterFinish": true,
-      "license": "LICENSE"
+      "runAfterFinish": true
     },
     "files": [
-      "*/**/*",
       "dist/**/*",
-      "build/**/*",
-      "node_modules/**/*",
       "package.json"
     ],
     "extraMetadata": {
-      "main": "src/electron.prod.js"
+      "main": "dist/ng-fun-target/electron.prod.js"
     },
     "extends": null
   },
