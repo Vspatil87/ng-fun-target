@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgxElectronModule } from 'ngx-electron';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,8 +11,6 @@ import { BetButtonsComponent } from './components/bet-buttons/bet-buttons.compon
 import { RightContentComponent } from './components/right-content/right-content.component';
 import { BetNumbersComponent } from './components/bet-numbers/bet-numbers.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { GameAppComponent } from './components/game-app/game-app.component';
 
 @NgModule({

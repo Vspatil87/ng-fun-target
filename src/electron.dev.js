@@ -107,9 +107,7 @@ ipcMain.on('getTime', function () {
 })
 
 function getTime() {
-    console.log('check get time');
     socket.on("timer", function (data) {
-        console.log('timer == ', data);
         win.webContents.send("timer", data);
     })
 }
@@ -119,9 +117,7 @@ ipcMain.on('getWinners', function () {
 })
 
 function getWinners() {
-    console.log('check win');
     socket.on("showWinners", function (data) {
-        console.log('winners == ', data);
         win.webContents.send("winners", data);
     })
 }
