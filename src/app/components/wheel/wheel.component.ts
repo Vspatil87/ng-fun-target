@@ -18,6 +18,7 @@ export class WheelComponent implements AfterViewInit {
   winningNumber: any;
   winningNumberSub: Subscription;
   userDetails: any;
+  wheelMusic = new Audio('./assets/audio/wheelStart.wav');
 
   constructor(private commonService: CommonService,
     private cdr: ChangeDetectorRef,
@@ -61,15 +62,13 @@ export class WheelComponent implements AfterViewInit {
           { textFillStyle: '#ffffff', fillStyle: '#5ABA20', text: '7' },
           { textFillStyle: '#ffffff', fillStyle: '#5ABA20', text: '8' },
           { textFillStyle: '#ffffff', fillStyle: '#5ABA20', text: '9' },
-          { textFillStyle: '#ffffff', fillStyle: '#5ABA20', text: '10' },
-          { textFillStyle: '#ffffff', fillStyle: '#5ABA20', text: '11' },
-          { textFillStyle: '#ffffff', fillStyle: '#5ABA20', text: '12' }
+          { textFillStyle: '#ffffff', fillStyle: '#5ABA20', text: '0' }
         ],
       animation:
       {
         type: 'spinToStop',
-        duration: 5,
-        spins: 8,
+        duration: 7,
+        spins: 10,
         callbackFinished: this.alertPrize.bind(this)
       },
       pointerGuide:
@@ -97,6 +96,7 @@ export class WheelComponent implements AfterViewInit {
 
   alertPrize(): void {
     this.winner = true;
+    this.wheelMusic.pause();
     this.theWheel.draw();
     this._electronService.ipcRenderer.send("getLastWin", this.userDetails.uid);
     this.cdr.detectChanges();
@@ -116,6 +116,9 @@ export class WheelComponent implements AfterViewInit {
     // console.log('Stop at angle must lie between 90 and 135 degrees - ', stopAt);
     // Important thing is to set the stopAngle of the animation before stating the spin.
     this.theWheel.animation.stopAngle = stopAt;
+    // Play before wheel start to spin
+    this.wheelMusic.currentTime = 0;
+    this.wheelMusic.play();
     // May as well start the spin from here.
     this.startSpin();
     // this.theWheel.animation.callbackFinished = console.log('This after animation ends - ', this.theWheel.getIndicatedSegment());
