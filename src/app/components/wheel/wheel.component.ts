@@ -32,6 +32,11 @@ export class WheelComponent implements AfterViewInit {
     })
 
     this._electronService.ipcRenderer.on("timer", (event, result) => {
+      if (result <= 2 && this.winningNumber) {
+        // Play before wheel start to spin
+        this.wheelMusic.currentTime = 0;
+        this.wheelMusic.play();
+      }
       if (result <= 1 && this.winningNumber) {
         this.calculatePrize();
       }
@@ -84,6 +89,9 @@ export class WheelComponent implements AfterViewInit {
     this.theWheel.rotationAngle = 0;
     this.theWheel.startAnimation();
     this.wheelSpinning = true;
+    setTimeout(() => {
+      this.wheelMusic.pause();
+    }, 6000);
   }
 
   resetWheel(): void {
@@ -96,7 +104,6 @@ export class WheelComponent implements AfterViewInit {
 
   alertPrize(): void {
     this.winner = true;
-    this.wheelMusic.pause();
     this.theWheel.draw();
     this._electronService.ipcRenderer.send("getLastWin", this.userDetails.uid);
     this.cdr.detectChanges();
@@ -116,9 +123,6 @@ export class WheelComponent implements AfterViewInit {
     // console.log('Stop at angle must lie between 90 and 135 degrees - ', stopAt);
     // Important thing is to set the stopAngle of the animation before stating the spin.
     this.theWheel.animation.stopAngle = stopAt;
-    // Play before wheel start to spin
-    this.wheelMusic.currentTime = 0;
-    this.wheelMusic.play();
     // May as well start the spin from here.
     this.startSpin();
     // this.theWheel.animation.callbackFinished = console.log('This after animation ends - ', this.theWheel.getIndicatedSegment());
