@@ -52,6 +52,13 @@ const createWindow = () => {
         win = null;
         app.quit();
     });
+
+    // Prevent the reload for application
+    win.webContents.on('before-input-event', (event, input) => {
+        if (input.control && input.key.toLowerCase() === 'r') {
+            event.preventDefault()
+        }
+    })
 }
 
 // This method will be called when Electron has finished

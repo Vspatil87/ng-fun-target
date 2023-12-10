@@ -35,7 +35,7 @@ const createWindow = () => {
                 enableRemoteModule: true,
                 backgroundThrottling: false,
                 contextIsolation: false,
-                devTools: true, 
+                devTools: true,
             },
         });
 
@@ -56,6 +56,13 @@ const createWindow = () => {
             win = null;
             app.quit();
         });
+
+        // Prevent the reload for application
+        win.webContents.on('before-input-event', (event, input) => {
+            if (input.control && input.key.toLowerCase() === 'r') {
+                event.preventDefault()
+            }
+        })
     }, 10000);
 }
 

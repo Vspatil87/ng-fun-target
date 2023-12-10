@@ -18,16 +18,21 @@ export class WheelComponent implements AfterViewInit {
   buttonImage = '../assets/images/spin_off.png';
   winningNumber: any;
   winningNumberSub: Subscription;
+  userDetails: any;
 
   constructor(private commonService: CommonService,
     private cdr: ChangeDetectorRef,
     private _electronService: ElectronService) {
+    let details = localStorage.getItem('user');
+    if (details) {
+      this.userDetails = JSON.parse(details);
+    }
     this.winningNumberSub = this.commonService.winner.subscribe(value => {
       this.winningNumber = value;
     })
 
     this._electronService.ipcRenderer.on("timer", (event, result) => {
-      if (result <= 1) {
+      if (result <= 1 && this.winningNumber) {
         this.calculatePrize();
       }
     });
@@ -40,7 +45,7 @@ export class WheelComponent implements AfterViewInit {
       innerRadius: 80,  // Set inner radius to make wheel hollow.
       centerX: 217,
       centerY: 219,
-      textFontSize: 32,
+      textFontSize: 40,
       'responsive': true,  // This wheel is responsive!
       'imageOverlay': true,
       'textMargin': 5,
@@ -93,6 +98,7 @@ export class WheelComponent implements AfterViewInit {
   alertPrize(): void {
     this.winner = true;
     this.theWheel.draw();
+    this._electronService.ipcRenderer.send("getLastWin", this.userDetails.uid);
     this.cdr.detectChanges();
   }
 
@@ -104,7 +110,6 @@ export class WheelComponent implements AfterViewInit {
     const start = this.theWheel.segments[this.winningNumber].startAngle;
     const end = this.theWheel.segments[this.winningNumber].endAngle;
     const angle = ((end - start) / 2);
-    console.log("angles == ", start, end, (start + angle));
 
     const stopAt = (start + angle);
     // const stopAt = this.getStopAt();

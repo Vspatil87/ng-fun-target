@@ -46,7 +46,6 @@ export class RightContentComponent {
       winners.forEach((winner: any) => {
         if (winner.uid === this.userDetails.uid) {
           this.commonService.winner.next(winner.number);
-          this._electronService.ipcRenderer.send("getLastWin", this.userDetails.uid);
         }
       });
     })

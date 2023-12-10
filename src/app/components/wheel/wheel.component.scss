@@ -1,3 +1,6 @@
+$width: 450px;
+$height: 450px;
+
 @keyframes blinking {
     50% {
         border-color: #ffcd5f;
@@ -12,8 +15,8 @@
 
     .pointer {
         position: absolute;
-        height: 450px;
-        width: 450px;
+        height: $height;
+        width: $width;
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -28,8 +31,8 @@
 
     .winner-image {
         position: absolute;
-        height: 450px;
-        width: 450px;
+        height: $height;
+        width: $width;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -44,6 +47,21 @@
             position: absolute;
             width: 90px;
             height: 90px;
+        }
+    }
+
+    /* Sets the outer background image for the wheel */
+    .outer-bg {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+
+        img {
+            position: absolute;
+            width: calc($width + 15px);
+            height: calc($height + 15px);
         }
     }
 

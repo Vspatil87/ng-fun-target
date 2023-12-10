@@ -29,9 +29,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/package.json",
-              "src/electron.prod.js",
-              "src/node_modules",
-              "src/assets/images"
+              "src/electron.prod.js"
             ],
             "styles": [
               "src/styles.scss"
