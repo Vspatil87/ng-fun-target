@@ -15,7 +15,6 @@ export class WheelComponent implements AfterViewInit {
   theWheel: any;
   wheelSpinning = false;
   winner = false;
-  buttonImage = '../assets/images/spin_off.png';
   winningNumber: any;
   winningNumberSub: Subscription;
   userDetails: any;
@@ -45,7 +44,8 @@ export class WheelComponent implements AfterViewInit {
       innerRadius: 80,  // Set inner radius to make wheel hollow.
       centerX: 217,
       centerY: 219,
-      textFontSize: 40,
+      textFontSize: 45,
+      textFontFamily: 'Poppins-SemiBold',
       'responsive': true,  // This wheel is responsive!
       'imageOverlay': true,
       'textMargin': 5,

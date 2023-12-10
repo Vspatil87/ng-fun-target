@@ -1,6 +1,8 @@
 {
   "name": "ng-fun-target",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Vspatil",
+  "description": "Game developed for amusement only",
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"ng serve\" \"npm run electron\"",
@@ -23,7 +25,7 @@
       "buildResources": "dist/ng-fun-target"
     },
     "win": {
-      "icon": "./src/assets/images/a2.ico",
+      "icon": "./src/assets/images/logo.ico",
       "requestedExecutionLevel": "highestAvailable",
       "target": [
         {
