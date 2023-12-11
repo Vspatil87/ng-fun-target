@@ -115,6 +115,7 @@ ipcMain.on('getTime', function () {
 
 function getTime() {
     socket.on("timer", function (data) {
+        console.log('timer == ', data);
         win.webContents.send("timer", data);
     })
 }
